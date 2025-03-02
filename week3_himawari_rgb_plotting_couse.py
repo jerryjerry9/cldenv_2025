@@ -58,7 +58,7 @@ sat_azm = output_data_list[6]
 sat_zth = output_data_list[7]
 
 angle=78
-reduce_adjust = False
+reduce_adjust = True
 band_rr = hima_plot.local_adjustment(band_r,sun_zth,reduce_adjust_angle=angle,
                                      reduce_high_zenith_adjust=reduce_adjust)
 band_gg = hima_plot.local_adjustment(band_g,sun_zth,reduce_adjust_angle=angle,
@@ -94,7 +94,7 @@ b_bb = corr_band_b
 
 min_threshold = [0,0,0]
 max_threshold = [100,100,100]
-b_r = hima_plot.rescale_value(b_rr,min_threshold[0],max_threshold[0],reverse=True)
+b_r = hima_plot.rescale_value(b_rr,min_threshold[0],max_threshold[0])
 b_g = hima_plot.rescale_value(b_gg,min_threshold[1],max_threshold[1])
 b_b = hima_plot.rescale_value(b_bb,min_threshold[2],max_threshold[2])
 
@@ -102,7 +102,6 @@ gamma = [1,1,1]
 profile_ID = 0
 profile_test = None
 self_prof= [True,True,True]
-self_prof= [False,False,False]
 enh_r = hima_plot.rgb_enhancement(b_r,gamma=gamma[0],profile_ID=profile_ID, 
                                   self_defined_profile=profile_test, self_defined_enhance=self_prof[0])
 enh_g = hima_plot.rgb_enhancement(b_g,gamma=gamma[1],profile_ID=profile_ID, 
