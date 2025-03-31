@@ -5,8 +5,9 @@ from ael_satellite_tools.plotting import Himawari
 lat = [-10, 60]
 lon = [90, 150]
 
+#cloudsat = CloudSat(work_path=[],lat_range=lat,lon_range=lon)
 
-data_path = '/data/cloud2025/temporary_data'
+data_path = '/data/C.jerryjerry9/hima_download/himawari_data'
 hima_plot = Himawari(work_path=[],data_path=data_path,plotting_lat_range=lat,plotting_lon_range=lon)
 
 cloudsat = CloudSat(work_path=[],lat_range=lat,lon_range=lon)
@@ -31,9 +32,7 @@ print(factor, missing_value)
 #ori_ref_list = cloudsat.read_ori_sddata(extracted_geo,'Radar_Reflectivity')
 ### read ori data
 
-### your rgb data path
-rgb_file = ['/data/cloud2025/temporary_data/rgb*.nc']
-###
+rgb_file = ['/data/C.jerryjerry9/hima_download/himawari_data/composite_data/201612240430_true_color_2km_rgb.nc']
 rgb_array,plotting_lon_list,plotting_lat_list,output_file_list  = hima_plot.read_rgb_nc_file(rgb_file)
 
 cloudsat.plot_track_w_rgb(geoprof_file[0],rgb_array[0],
@@ -86,6 +85,7 @@ extracted_region_start_time,extracted_region_end_time \
 
 cloudsat.plot_profile(extracted_ref,extracted_cfraction,'contourf',
                       extracted_lat,5,extracted_height,[0,20],5,
+                      5,
                       extracted_hdf_date,extracted_hdf_granule,
                       extracted_region_start_time,extracted_region_end_time,
                       figure_title='CloudSat Profile',
