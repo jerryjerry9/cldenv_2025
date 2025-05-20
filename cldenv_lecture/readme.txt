@@ -1,4 +1,4 @@
 Lecture for AEL_satellite_tools 
-1. Himawari
+1. Himawari: basic; True color; application(RGB composite) 
 2. CloudSat
 3. FS3 & FS7 RO profile
